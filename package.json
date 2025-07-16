@@ -19,6 +19,7 @@
     ]
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@angular/common": "^20.1.0",
     "@angular/compiler": "^20.1.0",
