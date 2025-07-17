@@ -11,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './login-page.scss'
 })
 export class LoginPage {
-authService = inject(AuthService);
+  authService = inject(AuthService);
 
   form = new FormGroup({
     username: new FormControl(null, Validators.required),
@@ -19,12 +19,12 @@ authService = inject(AuthService);
   })
 
   onSubmit() {
-    if (this.form.valid){
-//@ts-ignore
+    if (this.form.valid) {
+      //@ts-ignore
       this.authService.login(this.form.value)
-      .subscribe(res => {
-        console.log(res);
-      });
+        .subscribe(res => {
+          console.log(res);
+        });
     }
   }
 }
