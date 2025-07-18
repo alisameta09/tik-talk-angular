@@ -1,4 +1,4 @@
-<img src="/assets/svg/logo-small.svg" alt="" class="ml16 mb20">
+<img src="/assets/svg/logo-small.svg" alt="" class="mb20">
 
 <nav class="mb20">
     <ul class="main-menu-list">
@@ -12,7 +12,7 @@
     </ul>
 </nav>
 
-<p class="medium-text mb20">Подписчики</p>
+<p class="medium-text mb20 ml16">Подписчики</p>
 
 @for (profile of subscribers$ | async; track profile.id) {
     <app-subscriber-card
@@ -21,7 +21,7 @@
     </app-subscriber-card>
 }
 
-<div class="mt20 to-subscribers">
+<div class="mb20 to-subscribers">
     <a
         [routerLink]="['/subscribers']"
         class="to-subscribers-link medium-text"
