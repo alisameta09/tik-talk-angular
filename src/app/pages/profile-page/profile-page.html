@@ -1,1 +1,4 @@
-<p>profile-page works!</p>
+@if (profile$ | async; as profile) {
+
+<app-header [profile]="profile"></app-header>
+}
