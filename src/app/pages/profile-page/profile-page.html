@@ -1,8 +1,7 @@
 @if (profile$ | async; as profile) {
 
 <header class="profile-page__header">
-    <app-header 
-        [profile]="profile">
+    <app-header [profile]="profile">
     </app-header>
 
     <button class="btn to-setting-btn" [routerLink]="['/settings']">
@@ -10,4 +9,30 @@
         <svg icon="settings" class="to-setting-icon"></svg>
     </button>
 </header>
+
+<main class="profile-page__body">
+    <div></div>
+    <div>
+        <h3 class="h6 mb16">Подписчики</h3>
+        <div class="subscriber-wrapper mb32">
+            @for (subscriber of subscribers$ | async; track subscriber.id) {
+            <a class="subscriber-avatar-btn" [routerLink]="['/profile', subscriber.id]">
+                <img [src]="subscriber.avatarUrl | imgUrl" />
+            </a>
+            }
+            <a class="to-subscribers-search" [routerLink]="['/search']">
+            </a>
+        </div>
+
+        <h3 class="h6 mb16">Навыки</h3>
+        <div class="stack-wrapper mb32">
+        @for (skill of ['123', '12345', '5462']; track skill) {
+        <div class="skill-tag">{{ skill }}</div>
+        }
+    </div>
+
+    <h3 class="h6 mb16">О себе</h3>
+    <p class="medium-text">{{ profile.description }}</p>
+    </div>
+</main>
 }

@@ -5,14 +5,16 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
+import { ImgUrlPipe } from "../../helpers/pipes/img-url-pipe";
 
 @Component({
   selector: 'app-profile-page',
   imports: [
-    Header, 
+    Header,
     AsyncPipe,
-    RouterLink
-  ],
+    RouterLink,
+    ImgUrlPipe
+],
   templateUrl: './profile-page.html',
   styleUrl: './profile-page.scss'
 })
@@ -21,6 +23,7 @@ export class ProfilePage {
   route = inject(ActivatedRoute);
 
   me$ = toObservable(this.profileService.me)
+  subscribers$ = this.profileService.getSubscribersShortList(5);
 
   profile$ = this.route.params
     .pipe(
